@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".modeule.login.activity.LoginActivity">
+
+    <include
+        android:id="@+id/header_layout"
+        layout="@layout/layout_header" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp10"
+        android:minHeight="@dimen/dp220"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_login_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginEnd="@dimen/dp16"
+                android:textColorHint="@color/black_666666"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tie_login_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="@string/account_char"
+                    android:hint="账号"
+                    android:inputType="number"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/black_666666"
+                    android:textSize="18sp"
+                    android:theme="@style/LoginEditText" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginEnd="@dimen/dp16"
+                android:textColorHint="@color/black_666666"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_login_account">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tie_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="@string/phone_number_char"
+                    android:hint="密码"
+                    android:inputType="number"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/black_666666"
+                    android:textSize="18sp"
+                    android:theme="@style/LoginEditText" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                app:layout_constraintTop_toBottomOf="@+id/til_login_password"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginEnd="@dimen/dp16"
+                android:background="@drawable/selector_btn_red_radius8_bg"
+                android:text="登录"
+                android:layout_marginBottom="@dimen/dp20"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp18" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp16"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_qq"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:layout_gravity="center"
+            android:layout_toStartOf="@+id/view1"
+            android:src="@drawable/qq" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp" />
+
+        <ImageView
+            android:id="@+id/iv_weixin"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:layout_gravity="center"
+            android:layout_toEndOf="@+id/view1"
+            android:src="@drawable/weixin" />
+    </RelativeLayout>
+</LinearLayout>

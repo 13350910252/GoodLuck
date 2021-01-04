@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/header_layout"
+        layout="@layout/layout_header"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_day_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_copy_databases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="复制数据库到外部文件夹" />
+</LinearLayout>
