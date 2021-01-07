@@ -6,16 +6,21 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.goodluck.utils.Constant;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import org.xutils.BuildConfig;
 import org.xutils.x;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 import cn.bmob.v3.Bmob;
 
@@ -27,8 +32,11 @@ import cn.bmob.v3.Bmob;
  * 图片资源初始化，WebView的预加载，推送服务的注册等等，注意不要执行耗时操作
  */
 public class BaseApplication extends Application {
-    public Context mContext;
+    public Context mAppContext;
     public static final String TAG = "yinp";
+    public static final String TYPE_DEBUG = "type_debug";
+    public static final String TYPE_RELEASE = "type_release";
+    public static final String TYPE = TYPE_DEBUG;
 
     /**
      * 此处耗时操作将影响程序响应的速度
@@ -44,11 +52,27 @@ public class BaseApplication extends Application {
      */
     private void init() {
         registerActivityLifecycleCallbacks(lifecycleCallbacks);
-        mContext = this;
+        mAppContext = this;
         initXUtils();
         initPath();
         initQQ();
         initBmob();
+        initBugly();
+    }
+
+    private void initBugly() {
+        // 获取当前包名
+        String packageName = mAppContext.getPackageName();
+        // 获取当前进程名
+        String processName = getProcessName(android.os.Process.myPid());
+        // 设置是否为上报进程
+        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(mAppContext);
+        strategy.setBuglyLogUpload(processName == null || processName.equals(packageName));
+        if (TYPE.equals(TYPE_DEBUG)) {
+            CrashReport.initCrashReport(getApplicationContext(), "84648843c8", true, strategy);
+        } else {
+            CrashReport.initCrashReport(getApplicationContext(), "84648843c8", false, strategy);
+        }
     }
 
     private void initBmob() {
@@ -76,7 +100,9 @@ public class BaseApplication extends Application {
      */
     private void initXUtils() {
         x.Ext.init(this);
-        x.Ext.setDebug(BuildConfig.DEBUG);
+        if (TYPE.equals(TYPE_DEBUG)) {
+            x.Ext.setDebug(BuildConfig.DEBUG);
+        }
     }
 
     private void initQQ() {
@@ -114,7 +140,28 @@ public class BaseApplication extends Application {
             dir.mkdirs();
         }
     }
-
+    private static String getProcessName(int pid) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader("/proc/" + pid + "/cmdline"));
+            String processName = reader.readLine();
+            if (!TextUtils.isEmpty(processName)) {
+                processName = processName.trim();
+            }
+            return processName;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+        return null;
+    }
     /**
      * 很有可能不会调用,模拟器会调用
      */

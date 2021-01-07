@@ -16,6 +16,7 @@ import com.example.goodluck.modeule.login.activity.BaseUiListener;
 import com.example.goodluck.utils.Constant;
 import com.example.goodluck.utils.GlideUtils;
 import com.example.goodluck.utils.save.SharedPrefsMgr;
+import com.example.goodluck.widget.TakePhotoDialogFragment;
 import com.google.gson.JsonObject;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
@@ -27,6 +28,8 @@ public class MeFragment extends AppBaseFragment<FragmentMePageBinding> {
     private QQToken qqToken;
     private String headerUrl;
     private String nickName;
+
+    private TakePhotoDialogFragment takePhotoDialogFragment;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -35,7 +38,7 @@ public class MeFragment extends AppBaseFragment<FragmentMePageBinding> {
     }
     @Override
     protected void initViews(View view) {
-
+        binding.ivHeaderPicture.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +50,16 @@ public class MeFragment extends AppBaseFragment<FragmentMePageBinding> {
     public void onResume() {
         super.onResume();
         setHeaderPicture();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        if (v == binding.ivHeaderPicture){
+            takePhotoDialogFragment = new TakePhotoDialogFragment();
+            takePhotoDialogFragment.show(getChildFragmentManager(),"takePhoto");
+        }
     }
 
     private void setHeaderPicture() {
@@ -74,8 +87,6 @@ public class MeFragment extends AppBaseFragment<FragmentMePageBinding> {
                 }
             });
         }
-
-
     }
 
 }

@@ -51,7 +51,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static String getUserName() {
-        return SharedPrefsUtil.getValue(App.context, USER_NAME, "");
+        return SharedPrefsUtil.getValue(App.appContext, USER_NAME, "");
     }
 
     /**
@@ -60,7 +60,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static void setUserName(String platformUrl) {
-        SharedPrefsUtil.putValue(App.context, USER_NAME, platformUrl);
+        SharedPrefsUtil.putValue(App.appContext, USER_NAME, platformUrl);
     }
 
     /**
@@ -69,7 +69,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static String getHeaderPicture() {
-        return SharedPrefsUtil.getValue(App.context, HEADER_PICTURE, "");
+        return SharedPrefsUtil.getValue(App.appContext, HEADER_PICTURE, "");
     }
 
     /**
@@ -78,7 +78,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static void setHeaderPicture(String platformUrl) {
-        SharedPrefsUtil.putValue(App.context, HEADER_PICTURE, platformUrl);
+        SharedPrefsUtil.putValue(App.appContext, HEADER_PICTURE, platformUrl);
     }
 
     /**
@@ -87,7 +87,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static String getNickName() {
-        return SharedPrefsUtil.getValue(App.context, NICK_NAME, "");
+        return SharedPrefsUtil.getValue(App.appContext, NICK_NAME, "");
     }
 
     /**
@@ -96,7 +96,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static void setNickName(String platformUrl) {
-        SharedPrefsUtil.putValue(App.context, NICK_NAME, platformUrl);
+        SharedPrefsUtil.putValue(App.appContext, NICK_NAME, platformUrl);
     }
 
     /**
@@ -105,7 +105,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static String getQqToken() {
-        return SharedPrefsUtil.getValue(App.context, QQ_TOKEN, "");
+        return SharedPrefsUtil.getValue(App.appContext, QQ_TOKEN, "");
     }
 
     /**
@@ -114,7 +114,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static void setQqToken(String platformUrl) {
-        SharedPrefsUtil.putValue(App.context, QQ_TOKEN, platformUrl);
+        SharedPrefsUtil.putValue(App.appContext, QQ_TOKEN, platformUrl);
     }
 
     /**
@@ -123,7 +123,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static String getQqOpenId() {
-        return SharedPrefsUtil.getValue(App.context, QQ_OPEN_ID, "");
+        return SharedPrefsUtil.getValue(App.appContext, QQ_OPEN_ID, "");
     }
 
     /**
@@ -132,7 +132,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static void setQqOpenId(String platformUrl) {
-        SharedPrefsUtil.putValue(App.context, QQ_OPEN_ID, platformUrl);
+        SharedPrefsUtil.putValue(App.appContext, QQ_OPEN_ID, platformUrl);
     }
 
     /**
@@ -141,7 +141,7 @@ public class SharedPrefsMgr {
      * @return
      */
     public static String getQqExpires() {
-        return SharedPrefsUtil.getValue(App.context, QQ_EXPIRES, " ");
+        return SharedPrefsUtil.getValue(App.appContext, QQ_EXPIRES, " ");
     }
 
     /**
@@ -150,12 +150,12 @@ public class SharedPrefsMgr {
      * @return
      */
     public static void setQqExpires(String platformUrl) {
-        SharedPrefsUtil.putValue(App.context, QQ_EXPIRES, platformUrl);
+        SharedPrefsUtil.putValue(App.appContext, QQ_EXPIRES, platformUrl);
     }
 
     /********************************************* 系统数据配置 ************************************************/
     public static void remove(String key) {
-        SharedPrefsUtil.remove(App.context, key);
+        SharedPrefsUtil.remove(App.appContext, key);
     }
 
     private static String object2string(Object obj) {

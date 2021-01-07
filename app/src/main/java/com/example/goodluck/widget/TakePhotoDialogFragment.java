@@ -122,7 +122,6 @@ public class TakePhotoDialogFragment extends AppBaseDialogFragment<DialogTakePho
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         switch (requestCode) {
             case TAKE_PHOTO:
                 if (resultCode == 0) {
@@ -133,6 +132,9 @@ public class TakePhotoDialogFragment extends AppBaseDialogFragment<DialogTakePho
                     //获取图片旋转的角度
                     int degree = ImageUtil.readPictureDegree(getActivity().getContentResolver().openInputStream(imageUri));
                     Bitmap bitmap = ImageUtil.returnRotePhoto(degree, getActivity().getContentResolver().openInputStream(imageUri));
+                    if (onCallBackBitmapListener == null) {
+                        return;
+                    }
                     onCallBackBitmapListener = (OnCallBackBitmapListener) getActivity();
                     onCallBackBitmapListener.onCallBackBitmap(imageUri);
                 } catch (FileNotFoundException e) {
