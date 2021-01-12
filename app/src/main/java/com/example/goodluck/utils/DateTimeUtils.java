@@ -10,14 +10,14 @@ public class DateTimeUtils {
         @Nullable
         @Override
         protected SimpleDateFormat initialValue() {
-            return new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SS", Locale.CHINA);
+            return new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SS", Locale.getDefault());
         }
     };
     public static final ThreadLocal<SimpleDateFormat> yyyy_MM_dd = new ThreadLocal<SimpleDateFormat>() {
         @Nullable
         @Override
         protected SimpleDateFormat initialValue() {
-            return new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+            return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         }
     };
 }
