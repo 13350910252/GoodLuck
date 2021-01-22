@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +11,7 @@ import androidx.annotation.Nullable;
 import com.example.goodluck.base.fragment.PresenterBaseFragment;
 import com.example.goodluck.databinding.FragmentHomePageBinding;
 import com.example.goodluck.modeule.home.adapter.HomeBannerAdapter;
+import com.example.goodluck.modeule.home.calendar.activity.MyCalendarActivity;
 import com.example.goodluck.modeule.home.entity.BannerEntity;
 import com.example.goodluck.modeule.home.mvp.HomePresenter;
 import com.example.goodluck.modeule.home.mvp.HomeView;
@@ -64,7 +64,7 @@ public class HomeFragment extends PresenterBaseFragment<FragmentHomePageBinding,
     @Override
     public <T> void showBanner(T data) {
         JsonElement jsonElement = (JsonElement) data;
-        if (jsonElement.isJsonNull()){
+        if (jsonElement.isJsonNull()) {
             return;
         }
         Type type = new TypeToken<ArrayList<BannerEntity>>() {
@@ -78,8 +78,10 @@ public class HomeFragment extends PresenterBaseFragment<FragmentHomePageBinding,
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        if (v == binding.vsHomeMajorButton.ctvCalendar){
-
+        Intent intent = new Intent();
+        if (v == binding.vsHomeMajorButton.ctvCalendar) {
+            intent.setClass(getContext(), MyCalendarActivity.class);
+            startActivity(intent);
         }
     }
 

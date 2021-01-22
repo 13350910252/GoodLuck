@@ -6,15 +6,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!--获取sd卡写的权限，用于文件上传和下载-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--允许读取手机状态 用于创建BmobInstallation-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 腾讯bugly -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 获取sd卡写的权限，用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许读取手机状态 用于创建BmobInstallation -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 腾讯bugly -->
     <uses-permission android:name="android.permission.READ_LOGS" />
+
     <application
         android:name=".base.App"
         android:allowBackup="true"
@@ -25,6 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".modeule.home.calendar.activity.MyCalendarActivity"></activity>
         <activity android:name=".modeule.study.dialog.activity.SystemDialogActivity" />
         <activity android:name=".modeule.tools.task.activity.Test" />
         <activity
@@ -42,8 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".modeule.study.activity.StudyAndroidActivity" />
-        <activity android:name=".utils.permission.PermissionActivity" />
-        <!-- 接入qq的sdk要求的内容 -->
+        <activity android:name=".utils.permission.PermissionActivity" /> <!-- 接入qq的sdk要求的内容 -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -68,13 +65,10 @@
 
         <uses-library
             android:name="org.apache.http.legacy"
-            android:required="false" />
-        <!--        bmob-->
+            android:required="false" /> <!-- bmob -->
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
-            android:authorities="com.example.goodluck.BmobContentProvider"></provider>
-        <!-- 拍照 -->
-
+            android:authorities="com.example.goodluck.BmobContentProvider" /> <!-- 拍照 -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.exclusive"
