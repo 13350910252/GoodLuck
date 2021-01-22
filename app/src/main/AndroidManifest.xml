@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".modeule.home.calendar.activity.MyCalendarActivity"></activity>
+        <activity android:name=".modeule.home.calendar.activity.MyCalendarActivity" />
         <activity android:name=".modeule.study.dialog.activity.SystemDialogActivity" />
         <activity android:name=".modeule.tools.task.activity.Test" />
         <activity

@@ -8,6 +8,7 @@ import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 
@@ -30,6 +31,8 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
         getWindow().setEnterTransition(enter);//进入
         getWindow().setExitTransition(enter);//退出
         getWindow().setReenterTransition(enter);//用于决定如果当前Activity已经打开过，并且再次打开该Activity时的动画
+        //有截屏攻击风险
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
         mActivity = this;
         mContext = this;
@@ -37,6 +40,11 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
     }
 
     /**
