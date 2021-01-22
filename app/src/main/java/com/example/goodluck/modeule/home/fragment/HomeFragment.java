@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,6 +49,7 @@ public class HomeFragment extends PresenterBaseFragment<FragmentHomePageBinding,
             intent.setData(Uri.parse(data.getUrl()));
             startActivity(intent);
         });
+        binding.vsHomeMajorButton.ctvCalendar.setOnClickListener(this);
     }
 
     @Override
@@ -71,6 +73,14 @@ public class HomeFragment extends PresenterBaseFragment<FragmentHomePageBinding,
 
         homeBannerAdapter.setDatas(listBanner);
         homeBannerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        if (v == binding.vsHomeMajorButton.ctvCalendar){
+
+        }
     }
 
     @Override

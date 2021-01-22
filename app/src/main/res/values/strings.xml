@@ -32,4 +32,7 @@
     <string name="add_task">添加任务</string>
     <string name="save">保存</string>
     <string name="day_task">每日任务</string>
+
+
+    <string name="rili">日历</string>
 </resources>

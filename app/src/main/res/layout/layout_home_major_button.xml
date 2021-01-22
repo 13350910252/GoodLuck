@@ -1,115 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black_999999"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/black_999999"
+    app:cardCornerRadius="@dimen/dp12"
+    app:cardElevation="1dp">
 
-    <LinearLayout
-        android:id="@+id/ll_one"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/dp4"
-            android:paddingBottom="@dimen/dp4"
-            android:text="我的"
-            android:textColor="@color/black_333333"
-            android:textSize="@dimen/sp18" />
+        <LinearLayout
+            android:id="@+id/ll_one"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp48"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/dp4"
-            android:paddingBottom="@dimen/dp4"
-            android:text="我的"
-            android:textColor="@color/black_333333"
-            android:textSize="@dimen/sp18" />
+            <com.example.goodluck.customview.CustomTextView
+                android:id="@+id/ctv_calendar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp4"
+                android:paddingBottom="@dimen/dp4"
+                android:text="@string/rili"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/sp18"
+                app:lt_radius="12"
+                app:normal_background="@color/white"
+                app:pressed_background="@color/gray_0c000000" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/dp4"
-            android:paddingBottom="@dimen/dp4"
-            android:text="我的"
-            android:textColor="@color/black_333333"
-            android:textSize="@dimen/sp18" />
+            <com.example.goodluck.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp4"
+                android:paddingBottom="@dimen/dp4"
+                android:text="我的"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/sp18"
+                app:normal_background="@color/white"
+                app:pressed_background="@color/gray_0c000000" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/dp4"
-            android:paddingBottom="@dimen/dp4"
-            android:text="我的"
-            android:textColor="@color/black_333333"
-            android:textSize="@dimen/sp18" />
+            <com.example.goodluck.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp4"
+                android:paddingBottom="@dimen/dp4"
+                android:text="我的"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/sp18"
+                app:normal_background="@color/white"
+                app:pressed_background="@color/gray_0c000000" />
 
-    </LinearLayout>
+            <com.example.goodluck.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp4"
+                android:paddingBottom="@dimen/dp4"
+                android:text="我的"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/sp18"
+                app:normal_background="@color/white"
+                app:pressed_background="@color/gray_0c000000"
+                app:rt_radius="12" />
 
-    <LinearLayout
-        android:layout_marginTop="@dimen/dp8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_one">
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/dp4"
-            android:paddingBottom="@dimen/dp4"
-            android:text="我的"
-            android:textColor="@color/black_333333"
-            android:textSize="@dimen/sp18" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp48"
+            android:layout_marginTop="@dimen/dp8"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_one">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/dp4"
-            android:paddingBottom="@dimen/dp4"
-            android:text="我的"
-            android:textColor="@color/black_333333"
-            android:textSize="@dimen/sp18" />
+            <com.example.goodluck.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp4"
+                android:paddingBottom="@dimen/dp4"
+                android:text="我的"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/sp18"
+                app:lb_radius="12"
+                app:normal_background="@color/white"
+                app:pressed_background="@color/gray_0c000000" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/dp4"
-            android:paddingBottom="@dimen/dp4"
-            android:text="我的"
-            android:textColor="@color/black_333333"
-            android:textSize="@dimen/sp18" />
+            <com.example.goodluck.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp4"
+                android:paddingBottom="@dimen/dp4"
+                android:text="我的"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/sp18"
+                app:normal_background="@color/white"
+                app:pressed_background="@color/gray_0c000000" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/dp4"
-            android:paddingBottom="@dimen/dp4"
-            android:text="我的"
-            android:textColor="@color/black_333333"
-            android:textSize="@dimen/sp18" />
+            <com.example.goodluck.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp4"
+                android:paddingBottom="@dimen/dp4"
+                android:text="我的"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/sp18"
+                app:normal_background="@color/white"
+                app:pressed_background="@color/gray_0c000000" />
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.example.goodluck.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp4"
+                android:paddingBottom="@dimen/dp4"
+                android:text="我的"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/sp18"
+                app:normal_background="@color/white"
+                app:pressed_background="@color/gray_0c000000" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
