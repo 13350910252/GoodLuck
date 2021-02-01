@@ -1,0 +1,42 @@
+<resources>
+    <!--    boolean-->
+    <!--    boolean表示attr是布尔类型的值，取值只能是true或false。-->
+
+    <!--    string-->
+    <!--    string表示attr是字符串类型。-->
+
+    <!--    integer-->
+    <!--    integer表示attr是整数类型，取值只能是整数，不能是浮点数。-->
+
+    <!--    float-->
+    <!--    float表示attr是浮点数类型，取值只能是浮点数或整数。-->
+
+    <!--    fraction-->
+    <!--    fraction表示attr是百分数类型，取值只能以%结尾，例如30%、120.5%等。-->
+
+    <!--    color-->
+    <!--    color表示attr是颜色类型，例如#ff0000，也可以使用一个指向Color的资源，比如@android:color/background_dark，但是不能用0xffff0000这样的值。-->
+
+    <!--    dimension-->
+    <!--    dimension表示attr是尺寸类型，例如取值16px、16dp，也可以使用一个指向<dimen>类型的资源，比如@android:dimen/app_icon_size。-->
+
+    <!--    reference-->
+    <!--    reference表示attr的值只能指向某一资源的ID，例如取值@id/textView。-->
+
+    <!--    enum-->
+    <!--    enum表示attr是枚举类型，在定义enum类型的attr时，可以将attr的format设置为enum，也可以不用设置attr的format属性，但是必须在attr节点下面添加一个或多个enum节点。如下所示：-->
+    <!--    flag表示attr是bit位标记，flag与enum有相似之处，定义了flag的attr，在设置值时，可以通过|设置多个值，而且每个值都对应一个bit位，这样通过按位或操作符|可以将多个值合成一个值，我们一般在用flag表示某个字段支持多个特性，需要注意的是，要想使用flag类型，不能在attr上设置format为flag，不要设置attr的format的属性，直接在attr节点下面添加flag节点即可。-->
+    <declare-styleable name="CustomTextView">
+        <attr name="normal_background" format="reference|color" />
+        <attr name="pressed_background" format="reference|color" />
+        <attr name="radius" format="integer" />
+        <attr name="lt_radius" format="integer" />
+        <attr name="rt_radius" format="integer" />
+        <attr name="lb_radius" format="integer" />
+        <attr name="rb_radius" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="PercentCircleView">
+        <attr name="max_circle_line_color" format="color|reference" />
+        <attr name="min_circle_line_color" format="color|reference" />
+    </declare-styleable>
+</resources>

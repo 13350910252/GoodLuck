@@ -10,7 +10,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -70,13 +69,13 @@ public class CustomTextView extends AppCompatTextView {
         if (normal_background instanceof ColorDrawable && pressed_background instanceof ColorDrawable) {
             stateListDrawable = new StateListDrawable();
             setRadius();
-            if (shape == null) {
-                setSelectedColor((ColorDrawable) pressed_background, (ColorDrawable) normal_background, states, _states);
-            } else {
-                setSelectedShapeColor((ColorDrawable) pressed_background, states);
-                setSelectedShapeColor((ColorDrawable) normal_background, _states);
-                setBackground(stateListDrawable);
-            }
+//            if (shape == null) {
+//                setSelectedColor((ColorDrawable) pressed_background, (ColorDrawable) normal_background, states, _states);
+//            } else {
+            setSelectedShapeColor((ColorDrawable) pressed_background, states);
+            setSelectedShapeColor((ColorDrawable) normal_background, _states);
+            setBackground(stateListDrawable);
+//            }
 
         } else if (normal_background instanceof BitmapDrawable && pressed_background instanceof BitmapDrawable) {
             stateListDrawable = new StateListDrawable();
@@ -133,6 +132,9 @@ public class CustomTextView extends AppCompatTextView {
         stateListDrawable.addState(state, drawable);
     }
 
+    /**
+     * 不知道为啥没用
+     */
     private void setSelectedColor(ColorDrawable drawable1, ColorDrawable drawable2, int[] one, int[] two) {
         ColorStateList colorStateList = new ColorStateList(new int[][]{one, two}, new int[]{drawable1.getColor(), drawable2.getColor()});
         setBackgroundTintList(colorStateList);

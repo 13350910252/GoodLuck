@@ -70,7 +70,6 @@ public class HomeFragment extends PresenterBaseFragment<FragmentHomePageBinding,
         Type type = new TypeToken<ArrayList<BannerEntity>>() {
         }.getType();
         listBanner = new Gson().fromJson(jsonElement, type);
-
         homeBannerAdapter.setDatas(listBanner);
         homeBannerAdapter.notifyDataSetChanged();
     }
@@ -80,6 +79,10 @@ public class HomeFragment extends PresenterBaseFragment<FragmentHomePageBinding,
         super.onClick(v);
         Intent intent = new Intent();
         if (v == binding.vsHomeMajorButton.ctvCalendar) {
+//            intent.setAction("com.chen.broadcastrevicer");
+//            intent.setComponent(new ComponentName("com.example.goodluck"
+//                    , "com.example.goodluck.base.TestBroadcast"));
+//            getContext().sendBroadcast(intent);
             intent.setClass(getContext(), MyCalendarActivity.class);
             startActivity(intent);
         }

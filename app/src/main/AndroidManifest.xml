@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许读取手机状态 用于创建BmobInstallation -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 腾讯bugly -->
     <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".base.App"
@@ -30,6 +31,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modeule.tools.task.activity.DayTaskActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity android:name=".modeule.study.dialog.activity.MyCreateDialogActivity" />
         <activity android:name=".modeule.login.activity.LoginActivity">
@@ -78,6 +80,11 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+        <receiver android:name=".base.TestBroadcast">
+            <intent-filter>
+                <action android:name="com.chen.broadcastrevicer"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

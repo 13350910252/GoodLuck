@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">GoodLuck</string>
+    <string name="account_char">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="password_char">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="phone_number_char">0123456789</string>
+    <string name="certificate_char">0123456789xX</string>
+
+    <item name="ll_ok_cancel_key" type="id" />
+    <item name="cancel_key" type="id" />
+    <item name="dialog_key" type="id" />
+    <item name="button_key" type="id" />
+    <!--    登录界面-->
+    <string name="login_title">Login</string>
+    <!--    work界面-->
+    <string name="home_page">homePage</string>
+    <string name="study_page">学习</string>
+    <string name="recreation_page">娱乐</string>
+    <string name="tools_page">工具</string>
+    <string name="me_page">我的</string>
+
+    <!--    study学习界面-->
+    <string name="study_android">Android</string>
+    <string name="study_java">Java</string>
+    <string name="dialog">dialog</string>
+    <string name="system_dialog">系统弹窗</string>
+    <string name="remind_text">remind_text</string>
+    <string name="gps_permission_open">gps_permission_open</string>
+    <string name="control_shadow_dialog">控制阴影弹窗</string>
+
+    <!-- tools -->
+    <string name="title">标  题</string>
+    <string name="add_task">添加任务</string>
+    <string name="save">保存</string>
+    <string name="day_task">每日任务</string>
+
+
+    <string name="rili" formatted="false">calendar</string>
+</resources>
