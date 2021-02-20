@@ -16,6 +16,7 @@ import com.example.goodluck.modeule.login.mvp.LoginPresenter;
 import com.example.goodluck.modeule.login.mvp.LoginView;
 import com.example.goodluck.modeule.work.WorkActivity;
 import com.example.goodluck.utils.Constant;
+import com.example.goodluck.utils.zhiwen.FingerPrintUtils;
 import com.example.goodluck.utils.StatusBarUtil;
 import com.example.goodluck.utils.save.SharedPrefsMgr;
 import com.google.gson.JsonObject;
@@ -35,6 +36,25 @@ public class LoginActivity extends PresenterBaseActivity<ActivityLoginBinding, L
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FingerPrintUtils.instance(this).authenticate(new FingerPrintUtils.FingerListener() {
+            @Override
+            public void onResult(boolean success, CharSequence msg, boolean isLock) {
+//                tips.setText(msg);
+//                if (success) {
+//                    inflateView.setVisibility(View.GONE);
+//                    directInto();
+//                } else if (isLock)//多次锁定后再判断 密码
+//                {
+//                    if (appConfig.getUsePsw()) {
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                            FingerPrintUtils passWordUnLock = new FingerPrintUtils(LoginActivity.this);
+//                            passWordUnLock.showAuthenticationScreen(LoginActivity.this);
+//                            return;
+//                        }
+//                    }
+//                }
+            }
+        });
         if (UserInfo.getUserInfo(this).getObjectId() != null) {
             goWork();
             return;

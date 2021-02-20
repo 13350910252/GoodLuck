@@ -20,4 +20,10 @@ public class Constant {
      * qq的appid
      */
     public static final String APP_ID = "1111197503";
+
+
+    public static class DayTaskActivityCode{
+        public static final int REQUEST_CODE = 1;
+        public static final int RESULT_CODE = 2;
+    }
 }

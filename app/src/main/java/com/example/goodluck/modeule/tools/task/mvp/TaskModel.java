@@ -1,6 +1,7 @@
 package com.example.goodluck.modeule.tools.task.mvp;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.goodluck.database.DaoMaster;
 import com.example.goodluck.database.DaoSession;
@@ -39,6 +40,7 @@ public class TaskModel extends BaseModel {
             taskEntityDao.insert(entity);
             sqLiteCallBack.onSqlSuccess("添加任务成功");
         } catch (Exception e) {
+            Log.d("abcd", "addSQLiteData: " + e.toString());
             sqLiteCallBack.onSqlFail("添加任务失败");
         }
     }
@@ -52,5 +54,12 @@ public class TaskModel extends BaseModel {
             sqLiteCallBack.onSqlFail("添加任务失败");
             return null;
         }
+    }
+
+    /**
+     * 清除数据库
+     */
+    public void clearAllData() {
+        taskEntityDao.deleteAll();
     }
 }

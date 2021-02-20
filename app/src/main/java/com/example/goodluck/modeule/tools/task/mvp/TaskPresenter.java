@@ -6,7 +6,6 @@ import com.example.goodluck.base.activity.AppBaseActivity;
 import com.example.goodluck.base.activity.AppBaseFragmentActivity;
 import com.example.goodluck.modeule.tools.task.activity.AddTaskActivity;
 import com.example.goodluck.modeule.tools.task.activity.DayTaskActivity;
-import com.example.goodluck.mvp.BasePresenter;
 import com.example.goodluck.utils.CallBack;
 
 import java.lang.ref.WeakReference;
@@ -31,8 +30,11 @@ public class TaskPresenter {
     public void addSQLiteData(String title, String content) {
         final AddTaskActivity activity = (AddTaskActivity) wfFragmentActivity.get();
         if (TextUtils.isEmpty(title) || TextUtils.isEmpty(content)) {
-            activity.onSqlFail("标题和内容不能为空");
+            activity.onSqlFail("标题或内容不能为空");
         } else {
+            if (taskModel == null) {
+                return;
+            }
             taskModel.addSQLiteData(title, content, new CallBack.SQLiteCallBack() {
                 @Override
                 public void onSqlSuccess(String result) {
@@ -61,5 +63,9 @@ public class TaskPresenter {
 
             }
         });
+    }
+
+    public void clearAllData() {
+        taskModel.clearAllData();
     }
 }

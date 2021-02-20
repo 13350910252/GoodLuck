@@ -15,6 +15,7 @@ import com.example.goodluck.databinding.ActivityDayTaskBinding;
 import com.example.goodluck.modeule.tools.task.adapter.DayTasKAdapter;
 import com.example.goodluck.modeule.tools.task.entity.TaskEntity;
 import com.example.goodluck.modeule.tools.task.mvp.TaskCVIew;
+import com.example.goodluck.utils.Constant;
 import com.example.goodluck.utils.GreenDaoUtils;
 import com.example.goodluck.utils.StatusBarUtil;
 import com.example.goodluck.utils.ThreadPool;
@@ -73,8 +74,10 @@ public class DayTaskActivity extends AppBaseActivity<ActivityDayTaskBinding> imp
         }
         isClick = true;
         new Handler().postDelayed(runnable, 500);
+        Intent intent = null;
         if (view == binding.tvAddDayTask) {
-            startActivity(new Intent(mContext, AddTaskActivity.class));
+            intent = new Intent(mContext, AddTaskActivity.class);
+            startActivityForResult(intent, Constant.DayTaskActivityCode.REQUEST_CODE);
         }
     }
 
@@ -107,5 +110,16 @@ public class DayTaskActivity extends AppBaseActivity<ActivityDayTaskBinding> imp
                 });
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (Constant.DayTaskActivityCode.REQUEST_CODE == requestCode){
+            List<TaskEntity> list = GreenDaoUtils.getInstance(mContext).querySQLiteForSize(TaskEntity.class, 0);
+            mList.clear();
+            mList.addAll(list);
+            adapter.notifyDataSetChanged();
+        }
     }
 }

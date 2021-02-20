@@ -55,7 +55,7 @@ public class PermissionsUtil {
         if (PermissionsUtil.hasPermission(context, permission)) {
             listener.permissionGranted(permission);
         } else {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {//小于23，虽然当前项目最小23，但是用作学习
                 listener.permissionDenied(permission);
             } else {
                 String key = String.valueOf(System.currentTimeMillis());

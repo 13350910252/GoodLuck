@@ -44,7 +44,7 @@ public class TaskEntityDao extends AbstractDao<TaskEntity, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"TASK_ENTITY\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY NOT NULL ," + // 0: _id
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ," + // 0: _id
                 "\"TITLE\" TEXT," + // 1: title
                 "\"CONTENT\" TEXT," + // 2: content
                 "\"DATE\" INTEGER," + // 3: date

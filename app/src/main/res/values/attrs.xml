@@ -35,4 +35,8 @@
         <attr name="lb_radius" format="integer" />
         <attr name="rb_radius" format="integer" />
     </declare-styleable>
+    <declare-styleable name="PercentCircleView">
+        <attr name="max_circle_line_color" format="color|reference" />
+        <attr name="min_circle_line_color" format="color|reference" />
+    </declare-styleable>
 </resources>
