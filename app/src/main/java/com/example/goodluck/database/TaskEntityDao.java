@@ -24,7 +24,7 @@ public class TaskEntityDao extends AbstractDao<TaskEntity, Long> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property _id = new Property(0, long.class, "_id", true, "_id");
+        public final static Property _id = new Property(0, Long.class, "_id", true, "_id");
         public final static Property Title = new Property(1, String.class, "title", false, "TITLE");
         public final static Property Content = new Property(2, String.class, "content", false, "CONTENT");
         public final static Property Date = new Property(3, java.util.Date.class, "date", false, "DATE");
@@ -44,7 +44,7 @@ public class TaskEntityDao extends AbstractDao<TaskEntity, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"TASK_ENTITY\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ," + // 0: _id
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: _id
                 "\"TITLE\" TEXT," + // 1: title
                 "\"CONTENT\" TEXT," + // 2: content
                 "\"DATE\" INTEGER," + // 3: date
@@ -60,7 +60,11 @@ public class TaskEntityDao extends AbstractDao<TaskEntity, Long> {
     @Override
     protected final void bindValues(DatabaseStatement stmt, TaskEntity entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.get_id());
+ 
+        Long _id = entity.get_id();
+        if (_id != null) {
+            stmt.bindLong(1, _id);
+        }
  
         String title = entity.getTitle();
         if (title != null) {
@@ -82,7 +86,11 @@ public class TaskEntityDao extends AbstractDao<TaskEntity, Long> {
     @Override
     protected final void bindValues(SQLiteStatement stmt, TaskEntity entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.get_id());
+ 
+        Long _id = entity.get_id();
+        if (_id != null) {
+            stmt.bindLong(1, _id);
+        }
  
         String title = entity.getTitle();
         if (title != null) {
@@ -103,13 +111,13 @@ public class TaskEntityDao extends AbstractDao<TaskEntity, Long> {
 
     @Override
     public Long readKey(Cursor cursor, int offset) {
-        return cursor.getLong(offset + 0);
+        return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
     }    
 
     @Override
     public TaskEntity readEntity(Cursor cursor, int offset) {
         TaskEntity entity = new TaskEntity( //
-            cursor.getLong(offset + 0), // _id
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // _id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // title
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // content
             cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)), // date
@@ -120,7 +128,7 @@ public class TaskEntityDao extends AbstractDao<TaskEntity, Long> {
      
     @Override
     public void readEntity(Cursor cursor, TaskEntity entity, int offset) {
-        entity.set_id(cursor.getLong(offset + 0));
+        entity.set_id(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setTitle(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setContent(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setDate(cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)));
@@ -144,7 +152,7 @@ public class TaskEntityDao extends AbstractDao<TaskEntity, Long> {
 
     @Override
     public boolean hasKey(TaskEntity entity) {
-        throw new UnsupportedOperationException("Unsupported for entities with a non-null key");
+        return entity.get_id() != null;
     }
 
     @Override

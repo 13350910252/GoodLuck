@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 public class TaskEntity {
     @Id(autoincrement = true)
-    private long _id;
+    private Long _id;
     /**
      * 标题
      */
@@ -32,9 +32,9 @@ public class TaskEntity {
     @Property
     private boolean isFinish;
 
-    @Generated(hash = 1691223314)
-    public TaskEntity(long _id, String title, String content, Date date,
-                      boolean isFinish) {
+    @Generated(hash = 946776827)
+    public TaskEntity(Long _id, String title, String content, Date date,
+            boolean isFinish) {
         this._id = _id;
         this.title = title;
         this.content = content;
@@ -46,14 +46,10 @@ public class TaskEntity {
     public TaskEntity() {
     }
 
-    public long get_id() {
+    public Long get_id() {
         return this._id;
     }
-
-    public void set_id(long _id) {
-        this._id = _id;
-    }
-
+    
     public String getTitle() {
         return this.title;
     }
@@ -84,6 +80,10 @@ public class TaskEntity {
 
     public void setIsFinish(boolean isFinish) {
         this.isFinish = isFinish;
+    }
+
+    public void set_id(Long _id) {
+        this._id = _id;
     }
 
 }

@@ -42,7 +42,6 @@ public class TakePhotoAdapter extends RecyclerView.Adapter<TakePhotoAdapter.Take
         AdapterItakePhotoBinding binding = AdapterItakePhotoBinding.inflate(LayoutInflater.from(parent.getContext()));
         return new TakePhotoViewHoloder(binding);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final TakePhotoViewHoloder holder, final int position) {
         holder.iv_show_picture.setBackgroundResource(0);
