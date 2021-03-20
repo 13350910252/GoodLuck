@@ -29,7 +29,7 @@ public abstract class AppBaseFragment<T extends ViewBinding> extends BaseFragmen
         }
     };
 
-    protected T binding;
+    public T binding;
 
     @Nullable
     @Override

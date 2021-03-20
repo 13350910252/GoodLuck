@@ -52,10 +52,10 @@ public class DayTaskActivity extends AppBaseActivity<ActivityDayTaskBinding> imp
     @Override
     protected void initViews() {
         setStatusBarHeight(StatusBarUtil.getStatusBarHeight(mContext));
-        binding.headerLayout.headerCenterTitle.setText(R.string.day_task);
+        binding.headerLayoutTask.headerCenterTitle.setText(R.string.day_task);
         binding.tvAddDayTask.setOnClickListener(this);
         initRecycleView();
-        binding.headerLayout.viewStatus.setBackgroundColor(ContextCompat.getColor(mContext,R.color.red));
+        binding.headerLayoutTask.viewStatus.setBackgroundColor(ContextCompat.getColor(mContext,R.color.red));
         initLayout();
     }
 
@@ -79,7 +79,6 @@ public class DayTaskActivity extends AppBaseActivity<ActivityDayTaskBinding> imp
         /**
          * 设置间距
          */
-        int screenWidth = (int) AppUtils.getWidthPixels(mContext); //屏幕宽度
         int itemWidth = (int) AppUtils.dpToPx(mContext, 180); //每个item的宽度
         binding.rvList.addItemDecoration(new SpaceItemDecoration(mContext, itemWidth));
 
@@ -109,24 +108,29 @@ public class DayTaskActivity extends AppBaseActivity<ActivityDayTaskBinding> imp
     public void initLayout() {
         binding.mCollapsingToolbarLayout.post(() -> binding.appbar.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
             if (d == 0) {
-                d = binding.mCollapsingToolbarLayout.getMeasuredHeight() - binding.headerLayout.getRoot().getHeight();
+                d = binding.mCollapsingToolbarLayout.getMeasuredHeight() - binding.headerLayoutTask.getRoot().getHeight();
             }
             if (yOff <= 0) {
-                yOff = binding.mCollapsingToolbarLayout.getMeasuredHeight() - binding.headerLayout.getRoot().getHeight();
+                yOff = binding.mCollapsingToolbarLayout.getMeasuredHeight() - binding.headerLayoutTask.getRoot().getHeight();
             }
 
             Log.d(TAG, "verticalOffset: " + verticalOffset);
             float rate = Math.abs(verticalOffset * 1f / yOff);
-            Log.d(TAG, "onOffsetChanged: " + rate * 255);
             Log.d(TAG, "rate: " + rate);
-            binding.headerLayout.getRoot().getBackground().setAlpha((int) ((1 - rate) * 255));
-            binding.headerLayout.viewStatus.getBackground().setAlpha((int) (rate * 255));
+            binding.headerLayoutTask.getRoot().getBackground().setAlpha((int) ((1 - rate) * 255));
+            binding.headerLayoutTask.viewStatus.getBackground().setAlpha((int) (rate * 255));
             if (Math.abs(verticalOffset) >= yOff) {
                 Log.d(TAG, "onOffsetChanged: ");
-                binding.headerLayout.getRoot().getBackground().setAlpha(0);
-                binding.headerLayout.viewStatus.getBackground().setAlpha(255);
+                binding.headerLayoutTask.getRoot().getBackground().setAlpha(0);
+                binding.headerLayoutTask.viewStatus.getBackground().setAlpha(255);
             }
         }));
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        binding.headerLayoutTask.getRoot().getBackground().setAlpha(255);
     }
 
     @Override

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp10"
+    android:background="@drawable/selector_white_radius8_bg"
+    android:paddingBottom="@dimen/dp4">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:minHeight="@dimen/dp40"
+        android:maxLines="2"
+        android:paddingTop="@dimen/dp4"
+        android:paddingBottom="@dimen/dp8"
+        android:textColor="@color/black_333333"
+        android:textSize="@dimen/sp16"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="woshibiaoti" />
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        android:textColor="@color/black_666666"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="分享人：" />
+
+    <TextView
+        android:id="@+id/tv_author_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_666666"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintStart_toEndOf="@+id/tv_author"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="张安" />
+
+    <TextView
+        android:id="@+id/tv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        android:textColor="@color/black_666666"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintStart_toEndOf="@+id/tv_author_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="分享时间：" />
+
+    <TextView
+        android:id="@+id/tv_share_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_666666"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintStart_toEndOf="@+id/tv_share"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="一天前" />
+</androidx.constraintlayout.widget.ConstraintLayout>

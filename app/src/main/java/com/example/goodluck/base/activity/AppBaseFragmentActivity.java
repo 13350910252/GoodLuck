@@ -19,7 +19,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 public abstract class AppBaseFragmentActivity<T extends ViewBinding> extends BaseFragmentActivity {
-    protected T binding;
+    public T binding;
     //记录按下,防止连续点击
     public boolean isClick = false;
     public Runnable runnable = new Runnable() {

@@ -13,4 +13,8 @@ public interface ApiRetrofit {
 
     @GET("banner/json")
     Observable<BaseRetrofitData> getBannerList();
+
+//    https://www.wanandroid.com/article/list/0/json
+    @GET("article/list/0/json")
+    Observable<BaseRetrofitData> homArticleList();
 }

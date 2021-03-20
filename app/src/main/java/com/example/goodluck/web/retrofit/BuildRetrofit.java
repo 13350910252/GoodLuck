@@ -45,6 +45,8 @@ public class BuildRetrofit {
             Log.e(TAG, "| Response:" + content);
             Log.e(TAG, "----------Request End:" + duration + "毫秒----------");
             return response.newBuilder()
+//                    .addHeader()
+//                    .removeHeader()
                     .body(ResponseBody.create(mediaType, content))
                     .build();
         }

@@ -44,7 +44,7 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <include
-        android:id="@+id/header_layout"
+        android:id="@+id/header_layout_task"
         layout="@layout/layout_header"
         android:visibility="visible"
         app:contentInsetStart="0dp"

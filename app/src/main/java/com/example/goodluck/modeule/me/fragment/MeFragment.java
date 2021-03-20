@@ -1,5 +1,7 @@
 package com.example.goodluck.modeule.me.fragment;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,6 +15,8 @@ import com.example.goodluck.R;
 import com.example.goodluck.base.fragment.AppBaseFragment;
 import com.example.goodluck.databinding.FragmentMePageBinding;
 import com.example.goodluck.modeule.login.activity.BaseUiListener;
+import com.example.goodluck.modeule.work.WorkActivity;
+import com.example.goodluck.utils.AppClass;
 import com.example.goodluck.utils.Constant;
 import com.example.goodluck.utils.GlideUtils;
 import com.example.goodluck.utils.save.SharedPrefsMgr;
@@ -30,14 +34,22 @@ public class MeFragment extends AppBaseFragment<FragmentMePageBinding> {
     private String nickName;
 
     private TakePhotoDialogFragment takePhotoDialogFragment;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews(view);
         bindData();
     }
+
+    WorkActivity workActivity;
+
     @Override
     protected void initViews(View view) {
+        workActivity = (WorkActivity) getActivity();
+        workActivity.binding.headerLayout.headerEnd.setText(R.string.setting);
+        workActivity.binding.headerLayout.headerEnd.setVisibility(View.VISIBLE);
+        workActivity.binding.headerLayout.headerEnd.setOnClickListener(this);
         binding.ivHeaderPicture.setOnClickListener(this);
     }
 
@@ -56,9 +68,14 @@ public class MeFragment extends AppBaseFragment<FragmentMePageBinding> {
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        if (v == binding.ivHeaderPicture){
+        Intent intent = null;
+        if (v == binding.ivHeaderPicture) {
             takePhotoDialogFragment = new TakePhotoDialogFragment();
-            takePhotoDialogFragment.show(getChildFragmentManager(),"takePhoto");
+            takePhotoDialogFragment.show(getChildFragmentManager(), "takePhoto");
+        } else if (workActivity != null && workActivity.binding.headerLayout.headerEnd == v) {
+            intent = new Intent();
+            intent.setComponent(new ComponentName(getContext(), AppClass.settingActivity));
+            startActivity(intent);
         }
     }
 
